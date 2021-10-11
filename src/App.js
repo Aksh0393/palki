@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import List from "./List";
+import cheem from './cheem.png';
+import one from './1.gif';
+import two from './2.gif';
 import "./App.css";
 const App = () => {
 const [item,setitem]=useState("");
@@ -73,49 +76,52 @@ setItemArray(newt);
     
 }
     return (
-     
-<div className="container-fluid">
-<h1 className="text-center">😍 Made By Pamlki Mangla 😍</h1>
-<div class="row">
-    <div class="col-md-12 col-12 p-3 main">
-       <div class="jii container text-center">
-           <h1 class="text-center m-3 head">Todo List</h1>
-              <div class="internal">
-                <input type="text" 
+        <div className="container">
+        <div className="row">
+          <div className="col-10 mx-auto col-md-8 mt-5">
+            <h1 className="text-capitalize text-center">
+                <img src={one} height='60' width='60' alt='...'/>
+                      Cheemu's To-Do List 
+                <img src={one} height='60' width='60' alt='...'/>
+            </h1>
+        <div className="card card-body my-3">
+            <div className="input-group">
+            <input type="text" 
                 className="form-control me-2" 
                 id="gg" onChange={setValue} 
                 value={item} 
-                placeholder="To Do Item.."/>
-
-               {btn?<button className="btn btn-outline-dark" id="add" 
+                placeholder="To Do Item.."
+            />
+            {btn?<button className="btn" id="add" 
                onClick={editkrdo}><i class="far fa-save"></i>
-               </button>:<button className="btn btn-outline-dark" id="add" onClick={callTheValue}> 
+               </button>:<button className="btn" id="add" onClick={callTheValue}> 
                <i class="fas fa-plus"></i>
-               </button>
-   }
-            <div class="order">
-                           <ol class="ul">
-                        
-{itemArray.map((value,index)=>{
-return <List
-    element={value}
-    id={index}
-    deletee={deletee}
-    editTask={editTask}
-    moveUp={moveUp}
-    moveDown={moveDown}
+               </button>}
+          </div>
+        </div>
+          <ul className="list-group my-5">
+          {itemArray.map((value,index)=>{
+                    return <List
+                               element={value}
+                               id={index}
+                               deletee={deletee}
+                               editTask={editTask}
+                               moveUp={moveUp}
+                               moveDown={moveDown}
     
-/>
-})
-}   
-                           </ol>
-                        </div>
-                       </div>
-                   </div>
-   
-               </div>
-           </div>
-               </div>
+                            />
+                                        })
+           } 
+           </ul>
+
+
+
+
+        
+          </div>
+        </div>
+      </div>
+
 
     )
 }
